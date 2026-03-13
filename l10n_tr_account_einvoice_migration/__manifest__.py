@@ -6,7 +6,7 @@
     "license": "LGPL-3",
     "author": "Broadmax",
     "depends": [
-        "account",
+        "account","l10n_tr_account_einvoice"
     ],
     "post_init_hook": "post_init_hook",
     "installable": True,
