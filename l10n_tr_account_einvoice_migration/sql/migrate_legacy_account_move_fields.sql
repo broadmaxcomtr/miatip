@@ -13,7 +13,10 @@ BEGIN
     ) THEN
         EXECUTE '
             UPDATE account_move
-               SET l10n_tr_document_type = invoice_delivery_type
+               SET l10n_tr_document_type = CASE
+                   WHEN invoice_delivery_type IN (''einvoice'', ''earchive'') THEN TRUE
+                   ELSE FALSE
+               END
              WHERE invoice_delivery_type IS NOT NULL
         ';
     END IF;
